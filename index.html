@@ -116,9 +116,9 @@
 <!-- Hero -->
 <div class="hero">
   <div class="container">
-    <h1>Interpreting Agent Behavior</h1>
+    <h1>The First Workshop on Interpreting Agent Behavior (IAB)</h1>
     <p class="subtitle">
-      How do agents behave, why do they fail, and how do humans make sense of it?
+      Beyond Benchmarks: Empirical Methods for Understanding Agents
     </p>
     <span class="badge badge-light">NeurIPS 2026 Workshop</span>
     <span class="badge badge-light">December 6–12, 2026</span>
@@ -131,55 +131,77 @@
   <h2>About</h2>
   <p class="lead">
     AI agents powered by large language models are rapidly being deployed across software engineering,
-    scientific research, and daily workflows. Yet a fundamental gap persists: we lack systematic methods
-    for understanding <em>how</em> these agents behave, <em>why</em> they fail, and <em>how</em> humans
-    interpret and respond to their actions.
+    scientific research, and daily workflows. Systems such as Claude Code, Cursor, SWE-Agent, and
+    multi-agent frameworks now autonomously plan, execute, and iterate on complex tasks. Yet our
+    understanding of these systems has not kept pace with their deployment.
   </p>
   <p>
-    Current evaluation paradigms rely heavily on automated benchmarks (e.g., SWE-bench, HumanEval) that measure
-    task completion but reveal little about the behavioral dynamics underlying agent performance. When agents
-    encounter knowledge conflicts, ambiguous instructions, or cascading errors, their behavior often becomes
-    opaque to both developers and end users. At the same time, agentic systems generate rich interaction data,
-    including execution logs, tool-use traces, reasoning chains, and conversation histories, that remain
-    largely underexploited for behavioral analysis.
+    Current evaluation relies almost exclusively on automated benchmarks: pass/fail metrics that reveal
+    whether an agent succeeded but not <em>how</em> it behaved, <em>why</em> it failed, or how humans
+    made sense of its actions along the way. Even as NeurIPS's own Datasets and Benchmarks Track has
+    pushed the community toward more rigorous evaluation standards, agent evaluation remains stuck in
+    the pass/fail paradigm.
   </p>
   <p>
-    The <strong>Interpreting Agent Behavior (IAB)</strong> workshop addresses this gap by investigating agent
-    behaviors from two complementary perspectives:
+    A key barrier is methodological: the ML community has limited exposure to the empirical research
+    methods needed to study dynamic, interactive systems. How do you design a think-aloud study for
+    agent interactions? How do you systematically code thousands of tool-use traces? How do you measure
+    trust calibration over time? These are well-studied questions in HCI and the social sciences, with
+    decades of validated methodology, but they have yet to cross into the agent evaluation toolkit.
+    This workshop argues that bringing empirical research traditions into the study of AI agents is not
+    merely complementary to benchmark-driven evaluation — it is essential for building agents we can
+    actually understand and rely on.
   </p>
+  <p>
+    Consider two widely used benchmarks: HumanEval tests whether generated code passes unit tests;
+    SWE-bench checks whether a GitHub issue is resolved. Neither captures how the agent planned its
+    approach, what tools it chose, or how it recovered (or failed to recover) from intermediate errors.
+    Yet the data to answer these questions already exists. Agentic systems generate execution logs,
+    tool-use traces, reasoning chains, and conversation histories with every interaction. These artifacts
+    contain detailed signals about agent strategies, failure patterns, and adaptation behaviors that no
+    pass/fail metric can surface. This workshop aims to unlock that data through systematic empirical
+    analysis, from both the agent side and the human side.
+  </p>
+  <p>
+    The <strong>Interpreting Agent Behavior (IAB)</strong> workshop investigates agent behaviors from
+    two complementary perspectives and their interaction:
+  </p>
+
+  <h5>Agent side:</h5>
   <ul>
-    <li><strong>Mechanistic analysis of agent internals:</strong> planning errors, coordination breakdowns
-      in multi-agent systems, hallucination patterns, failure cascades, and behavior under knowledge conflicts.</li>
-    <li><strong>Interactional analysis of human-agent dynamics:</strong> trust calibration, over-reliance
-      patterns, verification strategies, mental model formation, and the cognitive processes humans use to
-      make sense of agent actions.</li>
+    <li>Planning errors and strategy selection</li>
+    <li>Coordination breakdowns in multi-agent systems</li>
+    <li>Hallucination patterns and knowledge conflicts</li>
+    <li>Failure cascades and recovery behaviors</li>
+    <li>Behavior under ambiguous or conflicting instructions</li>
   </ul>
+
+  <h5>Human side:</h5>
+  <ul>
+    <li>Trust calibration and over-reliance patterns</li>
+    <li>Verification strategies and error detection</li>
+    <li>Mental model formation and updating</li>
+    <li>Cognitive processes humans use to interpret agent actions</li>
+  </ul>
+
+  <h5>Human-agent interaction:</h5>
+  <ul>
+    <li>Interaction trace analysis and behavioral pattern mining</li>
+    <li>Qualitative coding of agent conversations and tool-use sequences</li>
+  </ul>
+
   <p>
-    By treating "interpretation" as both a technical diagnostic and a human cognitive process, we aim to
-    establish a unified vocabulary and research agenda for building agents that are not only performant
-    but also <strong>legible</strong> to their users.
+    The scope encompasses both single-agent systems and multi-agent systems (e.g., collaborative agent
+    teams, orchestrated workflows, multi-agent debate). By treating "interpretation" as both a technical
+    diagnostic and a human cognitive process, we aim to establish a unified vocabulary and research agenda
+    for building agents that are not only performant but also <strong>legible</strong> to their users.
   </p>
 </div>
 
 <!-- Topics -->
 <div class="container" id="topics">
   <h2>Topics of Interest</h2>
-  <ul class="topics-list">
-    <li><strong>Agent Behavior Under Uncertainty:</strong> How do agents handle ambiguous instructions,
-      conflicting knowledge, or incomplete information?</li>
-    <li><strong>Failure Mode Analysis:</strong> Systematic taxonomies of why agents fail, spanning planning
-      errors, tool misuse, hallucination, and cascading failures in multi-agent settings.</li>
-    <li><strong>Trust and Reliance Dynamics:</strong> How do humans calibrate trust in agent outputs?
-      When does over-reliance emerge, and what verification strategies do people develop?</li>
-    <li><strong>Mental Models of Agent Behavior:</strong> How do users form and update mental models
-      of what agents can and cannot do?</li>
-    <li><strong>Debugging and Auditing Agentic Systems:</strong> Methods, tools, and interfaces for
-      diagnosing agent behavior, from log analysis to interactive debugging.</li>
-    <li><strong>Multi-Agent Coordination and Breakdown:</strong> How do agents coordinate (or fail to
-      coordinate) in multi-agent systems?</li>
-    <li><strong>Evaluation Beyond Benchmarks:</strong> Human-centered evaluation methodologies that
-      capture behavioral quality, not just task completion.</li>
-  </ul>
+  <p class="text-muted"><em>To be announced.</em></p>
 </div>
 
 <!-- Invited Speakers -->
@@ -381,7 +403,7 @@
 <!-- Footer -->
 <footer>
   <div class="container">
-    Interpreting Agent Behavior — NeurIPS 2026 Workshop<br>
+    The First Workshop on Interpreting Agent Behavior (IAB) — NeurIPS 2026<br>
     <small>Last updated March 2026</small>
   </div>
 </footer>
