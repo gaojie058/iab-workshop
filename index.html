@@ -9,18 +9,21 @@
   <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <style>
     :root {
-      --cream: #FFFDF6;
-      --accent: #2c5f7c;
-      --accent-hover: #1d4259;
+      --bg: #FFFDF6;
+      --accent: #2c5f8a;
+      --accent-hover: #1a3d5c;
+      --text: #111;
+      --muted: #555;
     }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--cream);
+      background: var(--bg);
       font-family: "Palatino Linotype", "Book Antiqua", Palatino, "EB Garamond", serif;
-      color: #111;
+      color: var(--text);
     }
     a { color: var(--accent); }
     a:hover { color: var(--accent-hover); text-decoration: none; }
+    strong { font-weight: 600; }
     .lead { font-size: 1.05rem; }
     .container { max-width: 1000px; }
 
@@ -34,23 +37,19 @@
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, #1a3a4a 0%, #2c5f7c 50%, #3a7ca5 100%);
+      background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 50%, #3a7ab5 100%);
       color: #fff;
       padding: 4rem 0 3rem;
       text-align: center;
     }
-    .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; }
     .hero .subtitle { font-size: 1.15rem; opacity: 0.9; margin-bottom: 1.5rem; }
-    .hero .badge-venue {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 20px;
-      padding: 0.4rem 1.2rem;
-      font-size: 0.95rem;
-    }
+    .hero .badge-light { font-size: 0.95rem; padding: 0.5em 1em; }
 
-    /* Cards */
+    /* Section headings */
+    h2 { margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 2px solid #e4dcc7; }
+
+    /* Cards for speakers/organizers */
     .card { background: none; border: none; }
     .card-body { padding: 0.5rem; text-align: center; }
     .speaker-img, .organizer-img {
@@ -66,43 +65,38 @@
     }
     .flex-row-wrap .card { flex: 1 1 200px; max-width: 220px; }
 
-    /* Section headers */
-    section { padding: 2.5rem 0; }
-    section h2 {
-      font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem;
-      border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 0.3rem;
-    }
-
     /* Schedule table */
-    .schedule-table th { background: var(--accent); color: #fff; }
+    .schedule-table th { background: #2c5f8a; color: #fff; }
     .schedule-table td, .schedule-table th { padding: 0.6rem 1rem; vertical-align: top; }
-    .schedule-table tr:nth-child(even) { background: rgba(44,95,124,0.05); }
+    .schedule-table tr:nth-child(even) { background: #f8f6ef; }
 
-    /* Topic pills */
-    .topic-pill {
-      display: inline-block; background: rgba(44,95,124,0.1);
-      border: 1px solid rgba(44,95,124,0.2); border-radius: 8px;
-      padding: 0.8rem 1.2rem; margin: 0.4rem; font-size: 0.95rem;
-    }
-    .topic-pill strong { color: var(--accent); }
+    /* Topics list */
+    .topics-list li { margin-bottom: 0.5rem; }
 
     /* Footer */
-    footer { background: #1a3a4a; color: rgba(255,255,255,0.7); padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
-    footer a { color: rgba(255,255,255,0.9); }
+    footer { background: #1a3d5c; color: #ccc; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
+    footer a { color: #8bbde0; }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .hero h1 { font-size: 1.6rem; }
+      .speaker-img, .organizer-img { max-width: 120px; height: 120px; }
+    }
   </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-md sticky-top">
+<nav class="navbar navbar-expand-md navbar-light sticky-top">
   <div class="container">
-    <a class="navbar-brand font-weight-bold" href="#">IAB Workshop</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
+    <a class="navbar-brand font-weight-bold" href="#">IAB @ NeurIPS 2026</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navMain">
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#topics">Topics</a></li>
         <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
         <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
         <li class="nav-item"><a class="nav-link" href="#cfp">Call for Papers</a></li>
@@ -113,254 +107,274 @@
 </nav>
 
 <!-- Hero -->
-<header class="hero">
+<div class="hero">
   <div class="container">
     <h1>Interpreting Agent Behavior</h1>
-    <p class="subtitle">Understanding how agents behave, why they fail, and how humans make sense of it</p>
-    <span class="badge-venue">NeurIPS 2026 Workshop &middot; Vancouver, Canada &middot; December 2026</span>
+    <p class="subtitle">
+      How do agents behave, why do they fail, and how do humans make sense of it?
+    </p>
+    <span class="badge badge-light">NeurIPS 2026 Workshop</span>
+    <span class="badge badge-light">December 2026</span>
+    <span class="badge badge-light">Vancouver, BC</span>
   </div>
-</header>
+</div>
 
 <!-- About -->
-<section id="about">
-  <div class="container">
-    <h2>About</h2>
-    <p class="lead">
-      AI agents powered by large language models are rapidly being deployed across software engineering, scientific research, and daily workflows. Yet a fundamental gap persists: we lack systematic methods for understanding <em>how</em> these agents behave, <em>why</em> they fail, and <em>how</em> humans interpret and respond to their actions.
-    </p>
-    <p>
-      Current evaluation paradigms rely heavily on automated benchmarks (e.g., SWE-bench, HumanEval) that measure task completion but reveal little about the behavioral dynamics underlying agent performance. When agents encounter knowledge conflicts, ambiguous instructions, or cascading errors, their behavior often becomes opaque. At the same time, agentic systems generate rich interaction data, including execution logs, tool-use traces, and conversation histories, that remain largely underexploited for behavioral analysis.
-    </p>
-    <p>
-      The <strong>Interpreting Agent Behavior (IAB)</strong> workshop addresses this gap by investigating agent behaviors from two complementary perspectives:
-    </p>
-    <ul>
-      <li><strong>Mechanistic analysis of agent internals:</strong> planning errors, coordination breakdowns, hallucination patterns, failure cascades, and behavior under knowledge conflicts.</li>
-      <li><strong>Interactional analysis of human-agent dynamics:</strong> trust calibration, over-reliance patterns, verification strategies, mental model formation, and cognitive processes humans use to make sense of agent actions.</li>
-    </ul>
-    <p>
-      The scope encompasses both single-agent systems and multi-agent systems (e.g., collaborative agent teams, orchestrated workflows, multi-agent debate). By treating "interpretation" as both a technical diagnostic and a human cognitive process, we aim to establish a unified vocabulary and research agenda for building agents that are not only performant but also legible to their users.
-    </p>
+<div class="container" id="about">
+  <h2>About</h2>
+  <p class="lead">
+    AI agents powered by large language models are rapidly being deployed across software engineering,
+    scientific research, and daily workflows. Yet a fundamental gap persists: we lack systematic methods
+    for understanding <em>how</em> these agents behave, <em>why</em> they fail, and <em>how</em> humans
+    interpret and respond to their actions.
+  </p>
+  <p>
+    Current evaluation paradigms rely heavily on automated benchmarks (e.g., SWE-bench, HumanEval) that measure
+    task completion but reveal little about the behavioral dynamics underlying agent performance. When agents
+    encounter knowledge conflicts, ambiguous instructions, or cascading errors, their behavior often becomes
+    opaque to both developers and end users. At the same time, agentic systems generate rich interaction data,
+    including execution logs, tool-use traces, reasoning chains, and conversation histories, that remain
+    largely underexploited for behavioral analysis.
+  </p>
+  <p>
+    The <strong>Interpreting Agent Behavior (IAB)</strong> workshop addresses this gap by investigating agent
+    behaviors from two complementary perspectives:
+  </p>
+  <ul>
+    <li><strong>Mechanistic analysis of agent internals:</strong> planning errors, coordination breakdowns
+      in multi-agent systems, hallucination patterns, failure cascades, and behavior under knowledge conflicts.</li>
+    <li><strong>Interactional analysis of human-agent dynamics:</strong> trust calibration, over-reliance
+      patterns, verification strategies, mental model formation, and the cognitive processes humans use to
+      make sense of agent actions.</li>
+  </ul>
+  <p>
+    By treating "interpretation" as both a technical diagnostic and a human cognitive process, we aim to
+    establish a unified vocabulary and research agenda for building agents that are not only performant
+    but also <strong>legible</strong> to their users.
+  </p>
+</div>
 
-    <h5 class="mt-4 mb-3">Topics of Interest</h5>
-    <div style="text-align:center;">
-      <span class="topic-pill"><strong>Agent Behavior Under Uncertainty</strong></span>
-      <span class="topic-pill"><strong>Failure Mode Analysis</strong></span>
-      <span class="topic-pill"><strong>Trust &amp; Reliance Dynamics</strong></span>
-      <span class="topic-pill"><strong>Mental Models of Agents</strong></span>
-      <span class="topic-pill"><strong>Debugging Agentic Systems</strong></span>
-      <span class="topic-pill"><strong>Multi-Agent Coordination</strong></span>
-      <span class="topic-pill"><strong>Evaluation Beyond Benchmarks</strong></span>
+<!-- Topics -->
+<div class="container" id="topics">
+  <h2>Topics of Interest</h2>
+  <ul class="topics-list">
+    <li><strong>Agent Behavior Under Uncertainty:</strong> How do agents handle ambiguous instructions,
+      conflicting knowledge, or incomplete information?</li>
+    <li><strong>Failure Mode Analysis:</strong> Systematic taxonomies of why agents fail, spanning planning
+      errors, tool misuse, hallucination, and cascading failures in multi-agent settings.</li>
+    <li><strong>Trust and Reliance Dynamics:</strong> How do humans calibrate trust in agent outputs?
+      When does over-reliance emerge, and what verification strategies do people develop?</li>
+    <li><strong>Mental Models of Agent Behavior:</strong> How do users form and update mental models
+      of what agents can and cannot do?</li>
+    <li><strong>Debugging and Auditing Agentic Systems:</strong> Methods, tools, and interfaces for
+      diagnosing agent behavior, from log analysis to interactive debugging.</li>
+    <li><strong>Multi-Agent Coordination and Breakdown:</strong> How do agents coordinate (or fail to
+      coordinate) in multi-agent systems?</li>
+    <li><strong>Evaluation Beyond Benchmarks:</strong> Human-centered evaluation methodologies that
+      capture behavioral quality, not just task completion.</li>
+  </ul>
+</div>
+
+<!-- Invited Speakers -->
+<div class="container" id="speakers">
+  <h2>Invited Speakers</h2>
+  <div class="flex-row-wrap mt-4">
+
+    <div class="card">
+      <a href="https://esdurmus.github.io/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Esin+Durmus" class="speaker-img" alt="Esin Durmus">
+      </a>
+      <div class="card-body">
+        <a href="https://esdurmus.github.io/" class="speaker-name" target="_blank">Esin Durmus</a>
+        <small class="text-muted">Anthropic</small>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- Speakers -->
-<section id="speakers" style="background:#f7f5ee;">
-  <div class="container">
-    <h2>Invited Speakers</h2>
-    <div class="flex-row-wrap">
-
-      <div class="card">
-        <a href="https://m3s.mit.edu/our-team/armando-solar-lezama" target="_blank">
-          <img class="speaker-img" src="speakers/armando.jpg" alt="Armando Solar-Lezama">
-        </a>
-        <div class="card-body">
-          <a class="speaker-name" href="https://m3s.mit.edu/our-team/armando-solar-lezama" target="_blank">Armando Solar-Lezama</a>
-          <small class="text-muted">MIT CSAIL</small>
-        </div>
+    <div class="card">
+      <a href="https://ysu1989.github.io/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Yu+Su" class="speaker-img" alt="Yu Su">
+      </a>
+      <div class="card-body">
+        <a href="https://ysu1989.github.io/" class="speaker-name" target="_blank">Yu Su</a>
+        <small class="text-muted">Ohio State University</small>
       </div>
-
-      <div class="card">
-        <a href="https://esdurmus.github.io/" target="_blank">
-          <img class="speaker-img" src="speakers/esin.jpg" alt="Esin Durmus">
-        </a>
-        <div class="card-body">
-          <a class="speaker-name" href="https://esdurmus.github.io/" target="_blank">Esin Durmus</a>
-          <small class="text-muted">Anthropic</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <a href="https://ysu1989.github.io/" target="_blank">
-          <img class="speaker-img" src="speakers/yusu.jpg" alt="Yu Su">
-        </a>
-        <div class="card-body">
-          <a class="speaker-name" href="https://ysu1989.github.io/" target="_blank">Yu Su</a>
-          <small class="text-muted">Ohio State University</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <a href="https://ysymyth.github.io/" target="_blank">
-          <img class="speaker-img" src="speakers/shunyu.jpg" alt="Shunyu Yao">
-        </a>
-        <div class="card-body">
-          <a class="speaker-name" href="https://ysymyth.github.io/" target="_blank">Shunyu Yao</a>
-          <small class="text-muted">OpenAI</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <a href="https://minalee-research.github.io/" target="_blank">
-          <img class="speaker-img" src="speakers/mina.jpg" alt="Mina Lee">
-        </a>
-        <div class="card-body">
-          <a class="speaker-name" href="https://minalee-research.github.io/" target="_blank">Mina Lee</a>
-          <small class="text-muted">University of Chicago</small>
-        </div>
-      </div>
-
     </div>
-    <p class="text-center text-muted mt-3"><em>All speakers are tentative pending proposal acceptance.</em></p>
+
+    <div class="card">
+      <a href="https://ysymyth.github.io/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Shunyu+Yao" class="speaker-img" alt="Shunyu Yao">
+      </a>
+      <div class="card-body">
+        <a href="https://ysymyth.github.io/" class="speaker-name" target="_blank">Shunyu Yao</a>
+        <small class="text-muted">OpenAI</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://minalee-research.github.io/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Mina+Lee" class="speaker-img" alt="Mina Lee">
+      </a>
+      <div class="card-body">
+        <a href="https://minalee-research.github.io/" class="speaker-name" target="_blank">Mina Lee</a>
+        <small class="text-muted">University of Chicago</small>
+      </div>
+    </div>
+
   </div>
-</section>
+  <p class="text-center text-muted mt-3"><em>More speakers to be confirmed.</em></p>
+</div>
 
 <!-- Schedule -->
-<section id="schedule">
-  <div class="container">
-    <h2>Schedule</h2>
-    <p class="text-muted mb-3">Tentative schedule. All times are local Vancouver time (PST).</p>
-    <table class="table schedule-table">
-      <thead>
-        <tr><th>Time</th><th>Session</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>8:30 &ndash; 8:45</td><td>Opening Remarks</td></tr>
-        <tr><td>8:45 &ndash; 9:15</td><td>Invited Talk 1: Agent Behavior Under the Hood</td></tr>
-        <tr><td>9:15 &ndash; 9:45</td><td>Invited Talk 2: Scaling Human Understanding of AI</td></tr>
-        <tr><td>9:45 &ndash; 10:15</td><td>Contributed Spotlight Talks (4 &times; 7 min)</td></tr>
-        <tr><td>10:15 &ndash; 11:15</td><td>☕ Poster Session #1 + Coffee</td></tr>
-        <tr><td>11:15 &ndash; 11:45</td><td>Invited Talk 3</td></tr>
-        <tr><td>11:45 &ndash; 12:15</td><td>Invited Talk 4</td></tr>
-        <tr><td>12:15 &ndash; 13:30</td><td>🍽️ Lunch Break</td></tr>
-        <tr><td>13:30 &ndash; 14:30</td><td>Panel Discussion: &ldquo;What Would It Take to Trust an Agent?&rdquo;</td></tr>
-        <tr><td>14:30 &ndash; 15:00</td><td>Contributed Spotlight Talks (4 &times; 7 min)</td></tr>
-        <tr><td>15:00 &ndash; 16:00</td><td>☕ Poster Session #2 + Coffee</td></tr>
-        <tr><td>16:00 &ndash; 16:30</td><td>Open Discussion: Building a Shared Failure Taxonomy</td></tr>
-        <tr><td>16:30 &ndash; 16:45</td><td>Awards, Takeaways &amp; Closing</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+<div class="container" id="schedule">
+  <h2>Schedule</h2>
+  <p class="text-muted">All times are local Vancouver time (PST). Schedule is tentative.</p>
+  <table class="table schedule-table">
+    <thead>
+      <tr><th>Time</th><th>Session</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>8:30 – 8:45</td><td>Opening Remarks</td></tr>
+      <tr><td>8:45 – 9:15</td><td>Invited Talk 1</td></tr>
+      <tr><td>9:15 – 9:45</td><td>Invited Talk 2</td></tr>
+      <tr><td>9:45 – 10:15</td><td>Contributed Spotlight Talks (4 × 7 min)</td></tr>
+      <tr><td>10:15 – 11:15</td><td>Poster Session #1 + Coffee</td></tr>
+      <tr><td>11:15 – 11:45</td><td>Invited Talk 3</td></tr>
+      <tr><td>11:45 – 12:15</td><td>Invited Talk 4</td></tr>
+      <tr><td>12:15 – 13:30</td><td>Lunch Break</td></tr>
+      <tr><td>13:30 – 14:30</td><td>Panel Discussion: "What Would It Take to Trust an Agent?"</td></tr>
+      <tr><td>14:30 – 15:00</td><td>Contributed Spotlight Talks (4 × 7 min)</td></tr>
+      <tr><td>15:00 – 16:00</td><td>Poster Session #2 + Coffee</td></tr>
+      <tr><td>16:00 – 16:30</td><td>Open Discussion: Building a Shared Failure Taxonomy</td></tr>
+      <tr><td>16:30 – 16:45</td><td>Awards, Takeaways, and Closing</td></tr>
+    </tbody>
+  </table>
+</div>
 
 <!-- Call for Papers -->
-<section id="cfp" style="background:#f7f5ee;">
-  <div class="container">
-    <h2>Call for Papers</h2>
-    <p>We invite work that advances understanding of agent behavior from technical, human-centered, or interdisciplinary perspectives, including but not limited to:</p>
-    <ul>
-      <li>Agent behavior under uncertainty, knowledge conflicts, and ambiguous instructions</li>
-      <li>Failure mode taxonomies for single-agent and multi-agent systems</li>
-      <li>Trust calibration, over-reliance, and verification strategies in human-agent collaboration</li>
-      <li>Mental models of agent behavior and their impact on collaboration quality</li>
-      <li>Methods, tools, and interfaces for debugging and auditing agentic systems</li>
-      <li>Evaluation methodologies beyond task-completion benchmarks</li>
-      <li>Leveraging interaction logs, traces, and conversation histories for behavioral analysis</li>
-    </ul>
-    <p>Submissions may report new results, negative findings, benchmarks, system demos, or visionary perspectives.</p>
+<div class="container" id="cfp">
+  <h2>Call for Papers</h2>
+  <p>
+    We invite work that advances the understanding, interpretation, and evaluation of agent behavior,
+    including but not limited to the topics listed above. Submissions may report new results, negative
+    findings, benchmarks, position papers, system demos, or visionary perspectives.
+  </p>
+  <ul>
+    <li><strong>Long papers:</strong> up to 9 pages (excluding references)</li>
+    <li><strong>Short papers:</strong> up to 4 pages (excluding references)</li>
+    <li><strong>Formatting:</strong> NeurIPS 2026 style files, single anonymous PDF</li>
+    <li><strong>Appendix:</strong> supplementary material in the same PDF, no page limit</li>
+  </ul>
 
-    <h5 class="mt-4">Submission Guidelines</h5>
-    <ul>
-      <li><strong>Long papers:</strong> up to 9 pages (excluding references)</li>
-      <li><strong>Short papers:</strong> up to 4 pages (excluding references)</li>
-      <li><strong>Format:</strong> NeurIPS 2026 style files, single anonymized PDF</li>
-      <li><strong>Non-archival:</strong> authors are free to publish revised versions elsewhere</li>
-    </ul>
-
-    <h5 class="mt-4">Important Dates</h5>
-    <table class="table" style="max-width:500px;">
-      <tr><td><strong>Submission deadline</strong></td><td>TBD</td></tr>
-      <tr><td><strong>Notification</strong></td><td>TBD</td></tr>
-      <tr><td><strong>Camera-ready</strong></td><td>TBD</td></tr>
-      <tr><td><strong>Workshop day</strong></td><td>December 2026</td></tr>
-    </table>
-  </div>
-</section>
+  <h5>Important Dates</h5>
+  <table class="table table-sm" style="max-width:500px;">
+    <tr><td>Submission deadline</td><td><strong>TBD</strong></td></tr>
+    <tr><td>Notification of decisions</td><td><strong>TBD</strong></td></tr>
+    <tr><td>Camera-ready deadline</td><td><strong>TBD</strong></td></tr>
+    <tr><td>Workshop date</td><td><strong>December 2026</strong></td></tr>
+  </table>
+  <p>
+    The workshop is <strong>non-archival</strong>; authors are free to publish revised versions elsewhere.
+    Every submission will receive at least two reviews from our program committee.
+    Submissions will be managed through <a href="https://openreview.net" target="_blank">OpenReview</a>.
+  </p>
+</div>
 
 <!-- Organizers -->
-<section id="organizers">
-  <div class="container">
-    <h2>Organizers</h2>
-    <div class="flex-row-wrap">
+<div class="container" id="organizers">
+  <h2>Organizers</h2>
+  <div class="flex-row-wrap mt-4">
 
-      <div class="card">
-        <img class="organizer-img" src="organizers/sophia.jpg" alt="Jie (Sophia) Gao">
-        <div class="card-body">
-          <span class="organizer-name">Jie (Sophia) Gao</span>
-          <small class="text-muted">Johns Hopkins University</small>
-        </div>
+    <div class="card">
+      <a href="https://gaojie058.github.io/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Sophia+Gao" class="organizer-img" alt="Jie (Sophia) Gao">
+      </a>
+      <div class="card-body">
+        <a href="https://gaojie058.github.io/" class="organizer-name" target="_blank">Jie (Sophia) Gao</a>
+        <small class="text-muted">Johns Hopkins University</small>
       </div>
-
-      <div class="card">
-        <img class="organizer-img" src="organizers/kaiser.jpg" alt="Kaiser Sun">
-        <div class="card-body">
-          <span class="organizer-name">Kaiser Sun</span>
-          <small class="text-muted">Johns Hopkins University</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="organizer-img" src="organizers/teresa.jpg" alt="Teresa Yeo">
-        <div class="card-body">
-          <span class="organizer-name">Teresa Yeo</span>
-          <small class="text-muted">Google DeepMind</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="organizer-img" src="organizers/sijie.jpg" alt="Sijie Ji">
-        <div class="card-body">
-          <span class="organizer-name">Sijie Ji</span>
-          <small class="text-muted">Caltech</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="organizer-img" src="organizers/zhuoran.jpg" alt="Zhuoran Lu">
-        <div class="card-body">
-          <span class="organizer-name">Zhuoran Lu</span>
-          <small class="text-muted">Purdue University</small>
-        </div>
-      </div>
-
     </div>
 
-    <h5 class="mt-5 mb-3">Advisory Committee</h5>
-    <div class="flex-row-wrap">
-
-      <div class="card">
-        <img class="organizer-img" src="organizers/malone.jpg" alt="Thomas Malone">
-        <div class="card-body">
-          <span class="organizer-name">Thomas Malone</span>
-          <small class="text-muted">MIT</small>
-        </div>
+    <div class="card">
+      <a href="#" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Kaiser+Sun" class="organizer-img" alt="Kaiser Sun">
+      </a>
+      <div class="card-body">
+        <span class="organizer-name">Kaiser Sun</span>
+        <small class="text-muted">Johns Hopkins University</small>
       </div>
-
-      <div class="card">
-        <img class="organizer-img" src="organizers/dredze.jpg" alt="Mark Dredze">
-        <div class="card-body">
-          <span class="organizer-name">Mark Dredze</span>
-          <small class="text-muted">Johns Hopkins University</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="organizer-img" src="organizers/ziang.jpg" alt="Ziang Xiao">
-        <div class="card-body">
-          <span class="organizer-name">Ziang Xiao</span>
-          <small class="text-muted">JHU</small>
-        </div>
-      </div>
-
     </div>
+
+    <div class="card">
+      <a href="https://aserety.github.io/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Teresa+Yeo" class="organizer-img" alt="Teresa Yeo">
+      </a>
+      <div class="card-body">
+        <a href="https://aserety.github.io/" class="organizer-name" target="_blank">Teresa Yeo</a>
+        <small class="text-muted">Google DeepMind</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://sijieji.github.io/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Sijie+Ji" class="organizer-img" alt="Sijie Ji">
+      </a>
+      <div class="card-body">
+        <a href="https://sijieji.github.io/" class="organizer-name" target="_blank">Sijie Ji</a>
+        <small class="text-muted">Caltech</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://zhuoranlu.github.io/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Zhuoran+Lu" class="organizer-img" alt="Zhuoran Lu">
+      </a>
+      <div class="card-body">
+        <a href="https://zhuoranlu.github.io/" class="organizer-name" target="_blank">Zhuoran Lu</a>
+        <small class="text-muted">Purdue University</small>
+      </div>
+    </div>
+
   </div>
-</section>
+
+  <h4 class="mt-5">Advisory Committee</h4>
+  <div class="flex-row-wrap mt-3">
+
+    <div class="card">
+      <a href="https://cci.mit.edu/malone/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Tom+Malone" class="organizer-img" alt="Thomas Malone">
+      </a>
+      <div class="card-body">
+        <a href="https://cci.mit.edu/malone/" class="organizer-name" target="_blank">Thomas Malone</a>
+        <small class="text-muted">MIT</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">
+        <img src="https://via.placeholder.com/180?text=Mark+Dredze" class="organizer-img" alt="Mark Dredze">
+      </a>
+      <div class="card-body">
+        <a href="https://www.cs.jhu.edu/~mdredze/" class="organizer-name" target="_blank">Mark Dredze</a>
+        <small class="text-muted">Johns Hopkins University</small>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="container mt-5 mb-4">
+  <h2>Contact</h2>
+  <p>For questions, please contact us at
+    <a href="mailto:iab.workshop.neurips@gmail.com">iab.workshop.neurips@gmail.com</a>.
+  </p>
+</div>
 
 <!-- Footer -->
 <footer>
   <div class="container">
-    <p>Interpreting Agent Behavior Workshop &middot; NeurIPS 2026 &middot; Contact: <a href="mailto:iab-workshop@googlegroups.com">iab-workshop@googlegroups.com</a></p>
+    Interpreting Agent Behavior — NeurIPS 2026 Workshop<br>
+    <small>Last updated March 2026</small>
   </div>
 </footer>
 
