@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Interpreting Agent Behavior — NeurIPS 2026 Workshop</title>
+  <title>Interpreting Agent Behavior - NeurIPS 2026 Workshop</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <style>
     :root {
-      --bg: #f9fafb;
-      --accent: #4ECDC4;
-      --accent-hover: #3ab5ad;
-      --blue: #5B8DEF;
-      --purple: #7B6BA5;
-      --peach: #F4A683;
-      --text: #2d2d2d;
-      --muted: #666;
+      --bg: #ffffff;
+      --accent: #6BA3D6;
+      --accent-hover: #5590C4;
+      --mint: #5CC8B0;
+      --mint-light: #A8E6D5;
+      --blue-dark: #3A5F8A;
+      --text: #2c3e50;
+      --muted: #607080;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -24,8 +24,8 @@
       font-family: "Palatino Linotype", "Book Antiqua", Palatino, "EB Garamond", serif;
       color: var(--text);
     }
-    a { color: var(--blue); }
-    a:hover { color: var(--purple); text-decoration: none; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); text-decoration: none; }
     strong { font-weight: 600; }
     .lead { font-size: 1.05rem; }
     .container { max-width: 1000px; }
@@ -35,26 +35,46 @@
       background-color: #fff;
       border-bottom: 2px solid var(--accent);
     }
-    .navbar .navbar-brand { color: var(--purple); font-weight: 700; }
+    .navbar .navbar-brand { color: var(--accent); font-weight: 700; }
     .navbar .nav-link { color: #2d2d2d; }
     .navbar .nav-link:hover { color: var(--accent); }
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, #3ab5ad 0%, #4ECDC4 30%, #5B8DEF 70%, #7B6BA5 100%);
+      background: linear-gradient(135deg, #B8D4EC 0%, #6BA3D6 40%, #3A5F8A 100%);
       color: #fff;
       padding: 4rem 0 3rem;
       text-align: center;
     }
     .hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; }
     .hero .subtitle { font-size: 1.15rem; opacity: 0.92; margin-bottom: 1.5rem; }
-    .hero .badge-light { font-size: 0.95rem; padding: 0.5em 1em; background: rgba(255,255,255,0.9); color: #2d2d2d; }
+    .hero .badge-light { font-size: 0.95rem; padding: 0.5em 1em; background: rgba(255,255,255,0.9); color: #2c3e50; border: 1px solid var(--mint-light); }
+
+    /* Banner */
+    .between-banner {
+      max-width: 800px; width: 100%; margin: -2rem auto 1rem;
+      border-radius: 12px;
+    }
 
     /* Scroll offset for sticky navbar */
     [id] { scroll-margin-top: 70px; }
 
+    /* Highlight styles */
+    .highlight-accent {
+      background: linear-gradient(180deg, transparent 60%, rgba(92, 200, 176, 0.3) 60%);
+      padding: 0 2px;
+    }
+    .highlight-purple {
+      background: linear-gradient(180deg, transparent 60%, rgba(107, 163, 214, 0.3) 60%);
+      padding: 0 2px;
+    }
+    .highlight-blue {
+      background: linear-gradient(180deg, transparent 60%, rgba(168, 230, 213, 0.45) 60%);
+      padding: 0 2px;
+    }
+
     /* Section headings */
-    h2 { margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--accent); }
+    h2 { margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--mint); }
 
     /* Cards for speakers/organizers */
     .card { background: none; border: none; }
@@ -62,7 +82,7 @@
     .speaker-img, .organizer-img {
       width: 100%; max-width: 180px; height: 180px;
       object-fit: cover; border-radius: 50%; margin: 0 auto;
-      border: 3px solid var(--accent);
+      border: 3px solid var(--mint);
     }
     .speaker-name, .organizer-name {
       display: block; margin-top: 0.4rem; font-weight: 600; white-space: nowrap;
@@ -72,16 +92,22 @@
     }
     .flex-row-wrap .card { flex: 1 1 200px; max-width: 220px; }
 
+    /* Advisory avatar */
+    .advisory-avatar {
+      width: 28px; height: 28px; border-radius: 50%; object-fit: cover;
+      vertical-align: middle; margin-right: 4px; border: 1.5px solid var(--mint);
+    }
+
     /* Schedule table */
-    .schedule-table th { background: var(--purple); color: #fff; }
+    .schedule-table th { background: var(--accent); color: #fff; }
     .schedule-table td, .schedule-table th { padding: 0.6rem 1rem; vertical-align: top; }
-    .schedule-table tr:nth-child(even) { background: #eef6f5; }
+    .schedule-table tr:nth-child(even) { background: #f2f7fc; }
 
     /* Topics list */
     .topics-list li { margin-bottom: 0.5rem; }
 
     /* Footer */
-    footer { background: #3d3557; color: #ddd; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
+    footer { background: #3A5F8A; color: #dce8f2; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
     footer a { color: var(--accent); }
 
     /* Responsive */
@@ -116,12 +142,10 @@
 <!-- Hero -->
 <div class="hero">
   <div class="container">
-    <h1>The First Workshop on Interpreting Agent Behavior (IAB)</h1>
-    <p class="subtitle">
-      Beyond Benchmarks: Empirical Methods for Understanding Agents
-    </p>
-    <span class="badge badge-light">NeurIPS 2026 Workshop</span>
-    <span class="badge badge-light">December 6–12, 2026</span>
+    <span class="badge" style="background: var(--mint); color: #fff; font-size: 0.75rem; letter-spacing: 0.08em; margin-bottom: 0.5rem; display: inline-block; padding: 0.35em 0.8em;">THE FIRST WORKSHOP</span>
+    <h1>Interpreting Agent Behavior</h1>
+    <p class="subtitle">NeurIPS 2026 Workshop</p>
+<span class="badge badge-light">December 6–12, 2026</span>
     <span class="badge badge-light">Sydney, Australia</span>
   </div>
 </div>
@@ -130,17 +154,20 @@
 <div class="container" id="about">
   <h2>About</h2>
   <p class="lead">
-    AI agents powered by large language models are rapidly being deployed across software engineering,
+    AI agents powered by LLMs are rapidly being deployed across software engineering,
     scientific research, and daily workflows. Systems such as Claude Code, Cursor, SWE-Agent, and
-    multi-agent frameworks now autonomously plan, execute, and iterate on complex tasks. Yet our
-    understanding of these systems has not kept pace with their deployment.
+    multi-agent frameworks now autonomously plan, execute, and iterate on complex tasks. <span class="highlight-accent">Yet our
+    understanding of these systems has not kept pace with their deployment.</span>
   </p>
+  <div class="text-center mt-5 mb-1">
+    <img src="images/agent-behavior.png" alt="Agent Behavior Illustration" class="between-banner">
+  </div>
   <p>
     Current evaluation relies almost exclusively on automated benchmarks: pass/fail metrics that reveal
     whether an agent succeeded but not <em>how</em> it behaved, <em>why</em> it failed, or how humans
     made sense of its actions along the way. Even as NeurIPS's own Datasets and Benchmarks Track has
-    pushed the community toward more rigorous evaluation standards, agent evaluation remains stuck in
-    the pass/fail paradigm.
+    pushed the community toward more rigorous evaluation standards, <span class="highlight-purple">agent evaluation remains stuck in
+    the pass/fail paradigm.</span>
   </p>
   <p>
     A key barrier is methodological: the ML community has limited exposure to the empirical research
@@ -148,19 +175,19 @@
     agent interactions? How do you systematically code thousands of tool-use traces? How do you measure
     trust calibration over time? These are well-studied questions in HCI and the social sciences, with
     decades of validated methodology, but they have yet to cross into the agent evaluation toolkit.
-    This workshop argues that bringing empirical research traditions into the study of AI agents is not
-    merely complementary to benchmark-driven evaluation — it is essential for building agents we can
-    actually understand and rely on.
+    <span class="highlight-accent"><strong>This workshop argues that bringing empirical research traditions into the study of AI agents is not
+    merely complementary to benchmark-driven evaluation,it is essential for building agents we can
+    actually understand and rely on.</strong></span>
   </p>
   <p>
     Consider two widely used benchmarks: HumanEval tests whether generated code passes unit tests;
     SWE-bench checks whether a GitHub issue is resolved. Neither captures how the agent planned its
     approach, what tools it chose, or how it recovered (or failed to recover) from intermediate errors.
-    Yet the data to answer these questions already exists. Agentic systems generate execution logs,
+    <span class="highlight-blue">Yet the data to answer these questions already exists.</span> Agentic systems generate execution logs,
     tool-use traces, reasoning chains, and conversation histories with every interaction. These artifacts
     contain detailed signals about agent strategies, failure patterns, and adaptation behaviors that no
-    pass/fail metric can surface. This workshop aims to unlock that data through systematic empirical
-    analysis, from both the agent side and the human side.
+    pass/fail metric can surface. <span class="highlight-purple"><strong>This workshop aims to unlock that data through systematic empirical
+    analysis, from both the agent side and the human side.</strong></span>
   </p>
   <p>
     The <strong>Interpreting Agent Behavior (IAB)</strong> workshop investigates agent behaviors from
@@ -194,14 +221,22 @@
     The scope encompasses both single-agent systems and multi-agent systems (e.g., collaborative agent
     teams, orchestrated workflows, multi-agent debate). By treating "interpretation" as both a technical
     diagnostic and a human cognitive process, we aim to establish a unified vocabulary and research agenda
-    for building agents that are not only performant but also <strong>legible</strong> to their users.
+    for building agents that are not only performant but also <span class="highlight-accent"><strong>legible</strong></span> to their users.
   </p>
 </div>
 
 <!-- Topics -->
 <div class="container" id="topics">
   <h2>Topics of Interest</h2>
-  <p class="text-muted"><em>To be announced.</em></p>
+  <ul class="topics-list">
+    <li><strong>Agent Behavior Under Uncertainty:</strong> How do agents handle ambiguous instructions, conflicting knowledge, or incomplete information? What behavioral patterns emerge?</li>
+    <li><strong>Failure Mode Analysis:</strong> Systematic taxonomies of why agents fail, spanning planning errors, tool misuse, hallucination, and cascading failures in multi-agent settings.</li>
+    <li><strong>Trust and Reliance Dynamics:</strong> How do humans calibrate trust in agent outputs? When does over-reliance emerge, and what verification strategies do people develop?</li>
+    <li><strong>Mental Models of Agent Behavior:</strong> How do users form (and update) mental models of what agents can and cannot do? How do these models affect collaboration quality?</li>
+    <li><strong>Debugging and Auditing Agentic Systems:</strong> Methods, tools, and interfaces for diagnosing agent behavior, from log analysis to interactive debugging.</li>
+    <li><strong>Multi-Agent Coordination and Breakdown:</strong> How do agents coordinate (or fail to coordinate) in multi-agent systems? How do humans oversee and intervene in multi-agent workflows?</li>
+    <li><strong>Evaluation Beyond Benchmarks:</strong> Human-centered evaluation methodologies that capture behavioral quality, not just task completion. Scaling qualitative analysis of agent interactions.</li>
+  </ul>
 </div>
 
 <!-- Invited Speakers -->
@@ -357,30 +392,14 @@
 
   </div>
 
-  <h4 class="mt-5">Advisory Committee</h4>
-  <div class="flex-row-wrap mt-3">
-
-    <div class="card">
-      <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">
-        <img src="https://www.cs.jhu.edu/~mdredze/wp-content/uploads/2024/05/profile-picture-square.jpg" class="organizer-img" alt="Mark Dredze">
-      </a>
-      <div class="card-body">
-        <a href="https://www.cs.jhu.edu/~mdredze/" class="organizer-name" target="_blank">Mark Dredze</a>
-        <small class="text-muted">Johns Hopkins University</small>
-      </div>
-    </div>
-
-    <div class="card">
-      <a href="https://www.cs.jhu.edu/faculty/ziang-xiao/" target="_blank">
-        <img src="https://engineering.jhu.edu/wp-content/uploads/2022/11/Ziang-Xiao-square-1.jpeg" class="organizer-img" alt="Ziang Xiao">
-      </a>
-      <div class="card-body">
-        <a href="https://www.cs.jhu.edu/faculty/ziang-xiao/" class="organizer-name" target="_blank">Ziang Xiao</a>
-        <small class="text-muted">Johns Hopkins University</small>
-      </div>
-    </div>
-
-  </div>
+  <h5 class="mt-4" style="color: var(--muted);">Advisory Committee</h5>
+  <p>
+    <img src="https://www.cs.jhu.edu/~mdredze/wp-content/uploads/2024/05/profile-picture-square.jpg" alt="Mark Dredze" class="advisory-avatar">
+    <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">Mark Dredze</a> <small class="text-muted">(Johns Hopkins University)</small>
+    &nbsp;&middot;&nbsp;
+    <img src="https://engineering.jhu.edu/wp-content/uploads/2022/11/Ziang-Xiao-square-1.jpeg" alt="Ziang Xiao" class="advisory-avatar">
+    <a href="https://www.cs.jhu.edu/faculty/ziang-xiao/" target="_blank">Ziang Xiao</a> <small class="text-muted">(Johns Hopkins University)</small>
+  </p>
 
   <h4 class="mt-5">Program Committee</h4>
   <p class="text-muted"><em>To be announced.</em></p>
@@ -403,7 +422,7 @@
 <!-- Footer -->
 <footer>
   <div class="container">
-    The First Workshop on Interpreting Agent Behavior (IAB) — NeurIPS 2026<br>
+    The First Workshop on Interpreting Agent Behavior (IAB) - NeurIPS 2026<br>
     <small>Last updated March 2026</small>
   </div>
 </footer>
