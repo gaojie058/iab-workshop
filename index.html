@@ -157,8 +157,8 @@
   <p class="lead">
     AI agents powered by LLMs are rapidly being deployed across software engineering,
     scientific research, and daily workflows. Systems such as Claude Code, Cursor, SWE-Agent, and
-    multi-agent frameworks now autonomously plan, execute, and iterate on complex tasks. <span class="highlight-accent">Yet our
-    understanding of these systems has not kept pace with their deployment.</span>
+    multi-agent frameworks, among others, now autonomously plan, execute, and iterate on complex tasks.
+    <span class="highlight-accent">Yet our understanding of these systems has not kept pace with their deployment.</span>
   </p>
   <div class="text-center mt-5 mb-1">
     <img src="images/agent-behavior.png" alt="Agent Behavior Illustration" class="between-banner">
@@ -166,33 +166,56 @@
   <p>
     Current evaluation relies almost exclusively on automated benchmarks: pass/fail metrics that reveal
     whether an agent succeeded but not <em>how</em> it behaved, <em>why</em> it failed, or how humans
-    made sense of its actions along the way. Even as NeurIPS's own Datasets and Benchmarks Track has
-    pushed the community toward more rigorous evaluation standards, <span class="highlight-purple">agent evaluation remains stuck in
-    the pass/fail paradigm.</span>
+    made sense of its actions along the way. Consider two widely used benchmarks: HumanEval tests whether
+    generated code passes unit tests; SWE-bench checks whether a GitHub issue is resolved. Neither captures
+    how the agent planned its approach, what tools it chose, or how it recovered (or failed to recover) from
+    intermediate errors. As agents grow more capable, <span class="highlight-purple">the interpretation challenge does not shrink;
+    it intensifies.</span> We cannot predict when an agent will fail in a specific case. Users cannot calibrate
+    when to trust an agent's output versus when to verify it. And we lack the analytical tools to learn from
+    agent behavioral data at the scale it is being produced.
+  </p>
+  <p>
+    <span class="highlight-blue">Yet the data to answer these questions already exists.</span> Agentic systems
+    continuously generate execution traces, reasoning chains, tool-use logs, conversation histories, error
+    signals, and audit trails with every interaction. Understanding agent behavior from this data can help us
+    (1) diagnose failures by pinpointing where and why an agent's reasoning broke down,
+    (2) predict risk by identifying behavioral patterns associated with unreliable outcomes,
+    (3) optimize agent design through data-driven analysis of what strategies work and what does not, and
+    (4) calibrate human trust by informing users when to rely on an agent and when to verify its output.
+    Ultimately, interpreting agent behavior in real-world deployment creates a feedback loop: the better we
+    understand how agents behave, the better we can make them.
   </p>
   <p>
     A key barrier is methodological: the ML community has limited exposure to the empirical research
-    methods needed to study dynamic, interactive systems. How do you design a think-aloud study for
-    agent interactions? How do you systematically code thousands of tool-use traces? How do you measure
-    trust calibration over time? These are well-studied questions in HCI and the social sciences, with
-    decades of validated methodology, but they have yet to cross into the agent evaluation toolkit.
+    methods needed to study dynamic, interactive systems. How do you systematically code thousands of
+    tool-use traces? How do you measure trust calibration over time? How do you design studies for agent
+    interactions? These are well-studied questions in HCI and the social sciences, with decades of validated
+    methodology, but they have yet to cross into the agent evaluation toolkit.
     <span class="highlight-accent"><strong>This workshop argues that bringing empirical research traditions into the study of AI agents is not
-    merely complementary to benchmark-driven evaluation,it is essential for building agents we can
+    merely complementary to benchmark-driven evaluation; it is essential for building agents we can
     actually understand and rely on.</strong></span>
   </p>
   <p>
-    Consider two widely used benchmarks: HumanEval tests whether generated code passes unit tests;
-    SWE-bench checks whether a GitHub issue is resolved. Neither captures how the agent planned its
-    approach, what tools it chose, or how it recovered (or failed to recover) from intermediate errors.
-    <span class="highlight-blue">Yet the data to answer these questions already exists.</span> Agentic systems generate execution logs,
-    tool-use traces, reasoning chains, and conversation histories with every interaction. These artifacts
-    contain detailed signals about agent strategies, failure patterns, and adaptation behaviors that no
-    pass/fail metric can surface. <span class="highlight-purple"><strong>This workshop aims to unlock that data through systematic empirical
-    analysis, from both the agent side and the human side.</strong></span>
+    The <strong>Interpreting Agent Behavior (IAB)</strong> workshop investigates agent behaviors from
+    two complementary perspectives and their interaction. But beyond producing research, IAB aims to build
+    a community. NeurIPS's own Datasets and Benchmarks Track has demonstrated that evaluation can be elevated
+    from art to science through shared standards, reproducible methodology, and community-wide infrastructure.
+    We believe the same transformation is needed for agent behavior analysis. Today, interpreting agent behavior
+    is ad hoc: individual teams debug their own systems with bespoke tools and private intuitions. There is no
+    shared taxonomy of agent failure modes, no standardized protocol for analyzing behavioral traces, and no
+    common benchmark for measuring how well humans understand agent actions.
   </p>
   <p>
-    The <strong>Interpreting Agent Behavior (IAB)</strong> workshop investigates agent behaviors from
-    two complementary perspectives and their interaction:
+    <span class="highlight-purple"><strong>IAB will serve as the forum where this shared infrastructure begins.</strong></span>
+    We aim to (1) establish a common vocabulary for describing agent behaviors, failures, and human responses,
+    (2) catalyze the development of open behavioral datasets and analysis tools,
+    (3) bridge researchers from ML systems, agent evaluation, and HCI who are studying the same phenomena with
+    different methods but rarely talk to each other, and
+    (4) seed a recurring community that pushes agent interpretation from ad hoc debugging toward a rigorous,
+    reproducible science.
+  </p>
+  <p>
+    We investigate these questions from two complementary perspectives:
   </p>
 
   <h5>Agent side:</h5>
