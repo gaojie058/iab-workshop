@@ -76,18 +76,28 @@
     }
 
     /* Section headings */
-    h2 { margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--mint); }
+    h2 {
+      margin-top: 2.8rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--mint);
+      font-size: 2.35rem;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--blue-dark);
+    }
 
     /* Cards for speakers/organizers */
     .card { background: none; border: none; }
     .card-body { padding: 0.5rem; text-align: center; }
     .speaker-img, .organizer-img {
-      width: 100%; max-width: 150px; height: 150px;
+      width: 100%; max-width: 168px; height: 168px;
       object-fit: cover; border-radius: 50%; margin: 0 auto;
-      border: 3px solid var(--mint);
+      border: none;
     }
     .speaker-name, .organizer-name {
-      display: block; margin-top: 0.4rem; font-weight: 600; white-space: normal; text-align: center;
+      display: block; margin-top: 0.55rem; font-weight: 500; white-space: normal; text-align: center;
+      color: var(--accent);
     }
     .flex-row-wrap {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem;
@@ -108,6 +118,32 @@
     /* Topics list */
     .topics-list li { margin-bottom: 0.5rem; }
 
+    .committee-inline {
+      margin-top: 1.2rem;
+    }
+    .committee-inline h5,
+    .committee-inline h4 {
+      margin-top: 0;
+      margin-bottom: 0.45rem;
+      color: var(--blue-dark);
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .committee-inline p {
+      margin-bottom: 0;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+    .committee-inline .label-note {
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.55rem;
+    }
+    .committee-inline a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
     /* Footer */
     footer { background: #3A5F8A; color: #dce8f2; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
     footer a { color: var(--accent); }
@@ -115,7 +151,8 @@
     /* Responsive */
     @media (max-width: 576px) {
       .hero h1 { font-size: 1.6rem; }
-      .speaker-img, .organizer-img { max-width: 120px; height: 120px; }
+      .speaker-img, .organizer-img { max-width: 132px; height: 132px; }
+      h2 { font-size: 1.95rem; }
     }
   </style>
 </head>
@@ -487,52 +524,56 @@
 
   </div>
 
-  <h5 class="mt-4" style="color: var(--muted);">Advisory Board</h5>
-  <p class="text-muted"><em>We thank the faculty who have provided guidance and support for this workshop.</em></p>
-  <p>
-    <a href="https://www.cs.jhu.edu/faculty/ziang-xiao/" target="_blank">Ziang Xiao</a> <small class="text-muted">(Johns Hopkins University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://www.soufianehayou.com/" target="_blank">Soufiane Hayou</a> <small class="text-muted">(Johns Hopkins University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://toby.li/" target="_blank">Toby Jia-Jun Li</a> <small class="text-muted">(University of Notre Dame)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://hjian42.github.io/" target="_blank">Hang Jiang</a> <small class="text-muted">(Northeastern University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://www.weiyanshi.com/" target="_blank">Weiyan Shi</a> <small class="text-muted">(Northeastern University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://www.linkedin.com/in/nathanson/" target="_blank">Samuel Nathanson</a> <small class="text-muted">(xAI)</small>
-  </p>
+  <div class="committee-inline">
+    <h5>Advisory Board</h5>
+    <p class="label-note">We thank the faculty who have provided guidance and support for this workshop.</p>
+    <p>
+      <a href="https://www.cs.jhu.edu/faculty/ziang-xiao/" target="_blank">Ziang Xiao</a> <small class="text-muted">(Johns Hopkins University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://www.soufianehayou.com/" target="_blank">Soufiane Hayou</a> <small class="text-muted">(Johns Hopkins University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://toby.li/" target="_blank">Toby Jia-Jun Li</a> <small class="text-muted">(University of Notre Dame)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://hjian42.github.io/" target="_blank">Hang Jiang</a> <small class="text-muted">(Northeastern University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://www.weiyanshi.com/" target="_blank">Weiyan Shi</a> <small class="text-muted">(Northeastern University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://www.linkedin.com/in/nathanson/" target="_blank">Samuel Nathanson</a> <small class="text-muted">(xAI)</small>
+    </p>
+  </div>
 
-  <h4 class="mt-5">Program Committee</h4>
-  <p>
-    <a href="https://heyuan9.github.io/" target="_blank">Heyuan Huang</a> <small class="text-muted">(Johns Hopkins University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://armanhtm.github.io/" target="_blank">Arman Hatami</a> <small class="text-muted">(Johns Hopkins University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://eydcao.github.io/" target="_blank">Yadi Cao</a> <small class="text-muted">(UC San Diego)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://www.liboyang.org/" target="_blank">Boyang Li</a> <small class="text-muted">(Kean University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://alyssacolumbus.com/" target="_blank">Alyssa Columbus</a> <small class="text-muted">(Johns Hopkins University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://scholar.google.com/citations?user=BkEdnPMAAAAJ" target="_blank">Han Jiang</a> <small class="text-muted">(Johns Hopkins University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://neulab.github.io/people/haozheji/" target="_blank">Haozhe Ji</a> <small class="text-muted">(Carnegie Mellon University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://www.a8k.me/" target="_blank">Anikait Singh</a> <small class="text-muted">(Carnegie Mellon University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://gingerbeeedot.github.io/" target="_blank">Yu Qiao</a> <small class="text-muted">(Singapore Management University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://stephanie-m.github.io/" target="_blank">Stephanie Milani</a> <small class="text-muted">(Carnegie Mellon University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://chaowei07.github.io/" target="_blank">Chaowei Xiao</a> <small class="text-muted">(University of Wisconsin–Madison)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://b-tan.github.io/" target="_blank">Bowen Tan</a> <small class="text-muted">(University of Illinois Urbana-Champaign)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://www.stanford.edu/~xyin1/" target="_blank">Xiang Yin</a> <small class="text-muted">(Stanford University)</small>
-    &nbsp;&middot;&nbsp;
-    <a href="https://michaeljanz.github.io/" target="_blank">Michael Janz</a> <small class="text-muted">(Google DeepMind)</small>
-  </p>
+  <div class="committee-inline" style="margin-top: 2.1rem;">
+    <h4>Program Committee</h4>
+    <p>
+      <a href="https://heyuan9.github.io/" target="_blank">Heyuan Huang</a> <small class="text-muted">(Johns Hopkins University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://armanhtm.github.io/" target="_blank">Arman Hatami</a> <small class="text-muted">(Johns Hopkins University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://eydcao.github.io/" target="_blank">Yadi Cao</a> <small class="text-muted">(UC San Diego)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://www.liboyang.org/" target="_blank">Boyang Li</a> <small class="text-muted">(Kean University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://alyssacolumbus.com/" target="_blank">Alyssa Columbus</a> <small class="text-muted">(Johns Hopkins University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://scholar.google.com/citations?user=BkEdnPMAAAAJ" target="_blank">Han Jiang</a> <small class="text-muted">(Johns Hopkins University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://neulab.github.io/people/haozheji/" target="_blank">Haozhe Ji</a> <small class="text-muted">(Carnegie Mellon University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://www.a8k.me/" target="_blank">Anikait Singh</a> <small class="text-muted">(Carnegie Mellon University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://gingerbeeedot.github.io/" target="_blank">Yu Qiao</a> <small class="text-muted">(Singapore Management University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://stephanie-m.github.io/" target="_blank">Stephanie Milani</a> <small class="text-muted">(Carnegie Mellon University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://chaowei07.github.io/" target="_blank">Chaowei Xiao</a> <small class="text-muted">(University of Wisconsin–Madison)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://b-tan.github.io/" target="_blank">Bowen Tan</a> <small class="text-muted">(University of Illinois Urbana-Champaign)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://www.stanford.edu/~xyin1/" target="_blank">Xiang Yin</a> <small class="text-muted">(Stanford University)</small>
+      &nbsp;&middot;&nbsp;
+      <a href="https://michaeljanz.github.io/" target="_blank">Michael Janz</a> <small class="text-muted">(Google DeepMind)</small>
+    </p>
+  </div>
 </div>
 
 <!-- Sponsors -->
