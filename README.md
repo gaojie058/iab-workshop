@@ -15,10 +15,17 @@ Requires Node.js 22.13 or newer.
 
 ## Edit
 
-- `app/page.tsx`: workshop text, example methods, program, and interactive filters.
-- `app/globals.css`: responsive layout and visual styling.
+- `app/page.tsx`: page entry point.
+- `src/App.tsx`: second-edition workshop sections, adapted from the first-edition structure.
+- `src/data/siteData.ts`: original scope questions and second-edition method examples.
+- `src/components/Navigation.jsx`: adapted first-edition navigation.
+- `src/components/TopicIcon.jsx`: original first-edition topic icons.
+- `app/first-edition.css`: first-edition stylesheet, copied verbatim.
+- `app/globals.css`: second-edition additions.
 - `app/layout.tsx`: page and sharing metadata.
-- `public/iab.svg`: existing IAB mark, reused from the first-edition website.
+- `public/iab.svg` and `public/hero.png`: original IAB mark and terminal background.
+
+Visual source: `/Users/gaojie/Documents/Github/iab-agents.github.io`. The first-edition source repository remains unchanged.
 
 The workshop is described as proposed. Organizers, acceptance status, dates, submission format, and submission links must be confirmed before adding them. The program and method examples are proposed content. The conference location and two-session format follow the official CHI 2027 pages.
 
