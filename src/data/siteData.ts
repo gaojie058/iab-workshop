@@ -1,19 +1,4 @@
-// First-edition scope, with second-edition methods and participation information.
-export const scopes = ["All methods", "Agents", "Humans", "Interaction"] as const;
-export type Scope = (typeof scopes)[number];
-export const methods: { name: string; approach: string; description: string; question: string; scopes: Scope[] }[] = [
-  { name: "Thematic analysis", approach: "Qualitative", description: "Identify patterns across agent traces, human accounts, and records of interaction.", question: "What recurring patterns appear, and what do they mean in context?", scopes: ["Agents", "Humans", "Interaction"] },
-  { name: "Grounded theory", approach: "Qualitative", description: "Develop concepts and explanations through iterative data collection, coding, and comparison.", question: "What concepts help explain how people and agents work together?", scopes: ["Agents", "Humans", "Interaction"] },
-  { name: "Conversation & interaction analysis", approach: "Qualitative", description: "Examine sequences of turns, coordination, misunderstandings, and repair in situated interaction.", question: "How do people and agents establish, lose, and recover shared understanding?", scopes: ["Interaction"] },
-  { name: "Interviews & diary studies", approach: "Qualitative", description: "Learn how people experience agents, make sense of their behavior, and adapt their practices over time.", question: "How do expectations and experiences shape people's decisions?", scopes: ["Humans", "Interaction"] },
-  { name: "Ethnography & observation", approach: "Qualitative", description: "Study agent use within everyday work, social relationships, and organizational settings.", question: "How do agents fit into, and change, existing practices?", scopes: ["Humans", "Interaction"] },
-  { name: "Experiments & surveys", approach: "Quantitative / mixed", description: "Test specific hypotheses and measure human perceptions and behavior under defined conditions.", question: "How do agent behaviors or interface choices affect reliance and oversight?", scopes: ["Agents", "Humans", "Interaction"] },
-  { name: "Content & sequence analysis", approach: "Quantitative / mixed", description: "Describe coded actions and examine their frequency, order, and transitions across trajectories.", question: "Which behavioral patterns vary across tasks, agents, and settings?", scopes: ["Agents", "Interaction"] },
-  { name: "Participatory design & co-design", approach: "Design inquiry", description: "Work with people to explore how agent behavior should be represented, understood, and shaped.", question: "What do people need to see and control when working with agents?", scopes: ["Humans", "Interaction"] },
-  { name: "Research through design", approach: "Design inquiry", description: "Use the creation and study of artifacts to explore new ways of understanding and interacting with agents.", question: "What can making and trying alternative designs help us understand?", scopes: ["Humans", "Interaction"] },
-];
-
-
+// First-edition scope and second-edition participation information.
 export const topics = [
   {
     type: 'agents',
@@ -51,13 +36,63 @@ export const topics = [
 ];
 
 
-export const faqs = [
-  ["Who is this workshop for?", "Researchers and practitioners in HCI, social science, and AI who want to understand agent behavior, human behavior around agents, or human–agent interaction. We welcome a range of methodological backgrounds and levels of experience."],
-  ["Does my work need to cover all three levels?", "No. A contribution may focus on agents, humans, their interaction, or connections between these levels. The shared interest is what a method helps us understand and how it can be used responsibly."],
-  ["Are quantitative and design methods in scope?", "Yes. The workshop considers qualitative, quantitative, mixed, and design methods. We are interested in what each approach can reveal, the evidence it requires, and its limitations."],
-  ["Can I submit a contribution now?", "The call for participation is not open yet. Submission requirements, the selection process, deadlines, and a submission link will be announced here once confirmed."],
-  ["Is the CHI 2027 workshop confirmed?", "This page describes a proposed second edition of IAB for CHI 2027. Acceptance, the workshop date, and attendance details have not yet been confirmed."],
+export const workshopObjectives = [
+  'Identify what HCI and social science methods can reveal about agents, humans, and their interactions.',
+  'Examine the assumptions, evidence, and limits of applying these methods to agentic systems.',
+  'Compare interpretations across disciplines and identify where methods need to be adapted.',
+  'Develop shared research questions, practical resources, and opportunities for collaboration.',
 ];
 
+export const contributionTopics = [
+  ['Theories and methodological perspectives', 'Concepts and approaches from HCI, CSCW, and the social sciences that help describe and explain behavior at any of the three levels.'],
+  ['Empirical studies and comparative analyses', 'Studies of agent trajectories, human experiences, or interaction practices, including comparisons across tasks, systems, and settings.'],
+  ['Adapting and combining methods', 'Experiences of transferring methods to agent research, combining different forms of evidence, and working across disciplinary assumptions.'],
+  ['Tools and representations', 'Interfaces, visualizations, datasets, and analytic tools that help people inspect, interpret, and communicate behavioral evidence.'],
+  ['Quality of interpretation', 'Ways to examine whether interpretations are well supported, account for disagreement, and make the analytic process transparent.'],
+  ['Critical perspectives and open challenges', 'Questions about context, anthropomorphism, researcher assumptions, and whose perspectives are represented in interpretations of agent behavior.'],
+];
 
-export const navLinks = [['About','about'],['Methods','methods'],['Participate','cfp'],['Schedule','schedule'],['Organizers','organizers'],['Q&A','faq']];
+export const programSessions = [
+  {
+    title: 'Session 1: Perspectives and shared questions',
+    description: 'Introduce the problem space and bring different methodological perspectives into conversation.',
+    activities: [
+      ['10 min', 'Welcome and framing', 'Introduce the three levels of inquiry and the questions participants want to explore.'],
+      ['15 min', 'Opening perspectives', 'Discuss how HCI and social science approaches can inform the interpretation of agent behavior.'],
+      ['20 min', 'Participant spotlights', 'Brief contributions introduce a study, methodological challenge, tool, or position for discussion.'],
+      ['30 min', 'Cross-disciplinary discussion', 'Compare assumptions and evidence, then identify concrete questions for the group activities.'],
+    ],
+  },
+  {
+    title: 'Session 2: Group inquiry and research agenda',
+    description: 'Work through methodological questions and develop directions for future research.',
+    activities: [
+      ['40 min', 'Small-group activities', 'Groups examine a shared case or research question, discuss possible approaches, and document what each approach could reveal or miss.'],
+      ['20 min', 'Group reports', 'Share interpretations, points of disagreement, and proposed adaptations with the wider workshop.'],
+      ['15 min', 'Synthesis and next steps', 'Consolidate open questions, resource needs, and opportunities for continued collaboration.'],
+    ],
+  },
+];
+
+export const faqs = [
+  ['Who is this workshop for?', 'Researchers, students, and practitioners in HCI, CSCW, social science, AI, and related fields. We welcome different disciplinary perspectives and levels of experience with agent research.'],
+  ['Does my contribution need to address all three levels?', 'No. Work may focus on agents, humans, their interaction, or connections between these levels. Explain what your approach helps us understand and what questions remain open.'],
+  ['Can I participate without a paper?', 'The proposed interest-form route would let participants contribute a perspective or question without a paper. CHI 2027 also opens workshops to conference attendees, with priority for accepted position-paper authors. Details of access and capacity will be posted once confirmed.'],
+  ['What should a position paper contain?', 'Describe the behavior or interaction you want to understand, your method or perspective, the evidence it uses, and a question you would like to discuss. The draft call proposes 2–4 pages excluding references; final requirements will be announced with the call.'],
+  ['Do I need a completed study?', 'The proposed call welcomes early ideas, methodological positions, work in progress, and lessons from unsuccessful approaches, as well as completed studies. The emphasis is on what your contribution brings to the discussion.'],
+  ['What is the workshop format?', 'The proposed program combines short contributions and discussion in the first session with small-group inquiry and synthesis in the second. Exact times and presenters will be announced after confirmation.'],
+  ['Will remote participation be available?', 'CHI 2027 currently specifies in-person workshops. If IAB is accepted, participation will be in person in Pittsburgh. Links to the conference guidance are provided below.'],
+  ['Will participant papers appear in the ACM Digital Library?', 'No ACM Digital Library publication is promised for participant papers. CHI 2027 includes the accepted workshop proposal in its proceedings. We propose sharing participant contributions on this website with author permission; the final sharing and publication policy will be stated in the call.'],
+  ['What should participants prepare?', 'We plan to circulate preparation guidance before the workshop. This may include a short introduction, a case or research question for group discussion, and reading other participants’ contributions. Presentation requirements will be confirmed with acceptance notifications.'],
+  ['Can I submit now?', 'Submissions are not open yet. Paper and interest-form links, review arrangements, and deadlines will be added when the call opens.'],
+  ['Is the CHI 2027 workshop confirmed?', 'This is a proposed second edition of IAB for CHI 2027. Acceptance, the organizing team, the workshop date, and the final call for participation are still to be confirmed.'],
+];
+
+export const navLinks = [
+  ['About', 'about'],
+  ['Participate', 'cfp'],
+  ['Schedule', 'schedule'],
+  ['Contributions', 'accepted-papers'],
+  ['Organizers', 'organizers'],
+  ['Q&A', 'faq'],
+];

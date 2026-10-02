@@ -17,7 +17,7 @@ Requires Node.js 22.13 or newer.
 
 - `app/page.tsx`: page entry point.
 - `src/App.tsx`: second-edition workshop sections, adapted from the first-edition structure.
-- `src/data/siteData.ts`: original scope questions and second-edition method examples.
+- `src/data/siteData.ts`: original scope questions and second-edition participation information.
 - `src/components/Navigation.jsx`: adapted first-edition navigation.
 - `src/components/TopicIcon.jsx`: original first-edition topic icons.
 - `app/first-edition.css`: first-edition stylesheet, copied verbatim.
@@ -27,11 +27,17 @@ Requires Node.js 22.13 or newer.
 
 Visual source: `/Users/gaojie/Documents/Github/iab-agents.github.io`. The first-edition source repository remains unchanged.
 
-The workshop is described as proposed. Organizers, acceptance status, dates, submission format, and submission links must be confirmed before adding them. The program and method examples are proposed content. The conference location and two-session format follow the official CHI 2027 pages.
+The workshop is described as proposed. Organizers, acceptance status, dates, submission format, and submission links must be confirmed before adding them. The program, 2–4 page paper route, interest-form route, review process, and sharing plan are proposed content. The conference location and two-session format follow the official CHI 2027 pages.
+
+Content organization was informed by the CHI 2026 Human-Agent Collaboration workshop. Text and objectives are written for IAB; the reference workshop’s organizers, deadlines, submission links, and operational promises are not reused. The removed method catalogue remains absent.
+
+CHI 2027 adaptation: two in-person sessions with a break; no poster-board activity; participant papers are not promised ACM Digital Library publication. The draft session activities total 75 minutes per session.
 
 References:
+- https://chi26workshop-human-agent-collaboration.hailab.io/
+- https://chi2027.acm.org/chi-publication-formats/
 - https://iab-agents.github.io/
 - https://chi2027.acm.org/
 - https://chi2027.acm.org/authors/workshops/
 
-The site uses React and vinext, with Cloudflare Worker output for Sites. `.openai/hosting.json` stores the Sites project identity. The first deployment is private.
+The site uses React and vinext, with Cloudflare Worker output for Sites. `.openai/hosting.json` stores the Sites project identity. An earlier deployment is private. Current updates are local-only at the user’s request.
