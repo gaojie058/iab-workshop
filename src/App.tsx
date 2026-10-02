@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import Navigation from './components/Navigation';
 import TopicIcon from './components/TopicIcon';
@@ -8,7 +10,7 @@ const conferenceGuidance = 'https://chi2027.acm.org/authors/workshops/';
 function Hero() {
   return (
     <header id="top" className="hero">
-      <Image unoptimized src="/hero.png" alt="A Claude Code terminal session analyzing an AI agent runtime trajectory" className="hero-bg" fill priority />
+      <Image unoptimized src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/hero.png`} alt="A Claude Code terminal session analyzing an AI agent runtime trajectory" className="hero-bg" fill priority />
       <div className="container">
         <div className="hero-eyebrow">The Second Workshop on</div>
         <h1>Interpreting Agent Behavior</h1>

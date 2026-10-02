@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "IAB 2027 | Interpreting Agent Behavior · CHI 2027",
   description: "The proposed second IAB workshop at CHI 2027: exploring HCI and social science methods for understanding agents, humans, and their interactions.",
-  icons: { icon: "/iab.svg", shortcut: "/iab.svg" },
+  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/iab.svg`, shortcut: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/iab.svg` },
   openGraph: {
     title: "IAB 2027 · Interpreting Agent Behavior",
     description: "HCI and social science methods for understanding agents, humans, and their interactions. Proposed second-edition workshop at CHI 2027.",

@@ -30,7 +30,7 @@ export default function Navigation() {
     <nav className="nav" aria-label="Main navigation">
       <div className="container">
         <a className="nav-logo" href="#top" onClick={() => setIsOpen(false)}>
-          <Image unoptimized className="logo-mark" src="/iab.svg" width={30} height={30} alt="" />
+          <Image unoptimized className="logo-mark" src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/iab.svg`} width={30} height={30} alt="" />
           IAB
           <span className="conference-mark">CHI 2027<span>Second edition</span></span>
         </a>

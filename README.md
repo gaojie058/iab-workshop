@@ -2,6 +2,8 @@
 
 Website for the proposed second Interpreting Agent Behavior workshop at CHI 2027.
 
+Public website: https://gaojie058.github.io/iab-workshop/
+
 Core question: What methods from HCI and the social sciences can help us understand agents, humans, and their interactions?
 
 ## Run
@@ -12,6 +14,10 @@ Requires Node.js 22.13 or newer.
 - `npm run dev`
 - `npm run build`
 - `npm test` (production Worker response and section navigation)
+
+GitHub Pages serves the static export from the `gh-pages` branch. Build that
+version with `GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/iab-workshop npx next build`
+and publish the generated `out/` directory to that branch.
 
 ## Edit
 
