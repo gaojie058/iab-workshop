@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[7834,["/iab-workshop/_next/static/chunks/0ppg1l~kc.8q0.js","/iab-workshop/_next/static/chunks/0dyb~jfe1v.8-.js"],"default"]
+3:I[36661,["/iab-workshop/_next/static/chunks/0ppg1l~kc.8q0.js","/iab-workshop/_next/static/chunks/0dyb~jfe1v.8-.js"],"default"]
+4:[]
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"An1jyNeTXvz2TvfDy1Ds1"}
