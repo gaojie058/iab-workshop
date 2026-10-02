@@ -54,12 +54,12 @@ export const contributionTopics = [
 
 export const programSessions = [
   {
-    title: 'Session 1: Lightning talks across disciplines',
-    description: 'Short talks introduce methods from HCI and the social sciences and the agent research questions they could help answer.',
+    title: 'Session 1: Three-minute paper pitches',
+    description: 'Each paper presented in this session receives a three-minute lightning talk to introduce its method or perspective and an agent research question.',
     activities: [
       ['10 min', 'Welcome and framing', 'Introduce the three levels of inquiry: agent behavior, human responses, and their interaction.'],
-      ['45 min', 'Lightning talks', 'Speakers and participants briefly present a method, an agent-related research question, and what the method might reveal. Speakers and exact timing will be confirmed later.'],
-      ['15 min', 'Clarifying questions', 'Compare the perspectives introduced in the talks and surface questions that need cross-disciplinary discussion.'],
+      ['45 min reserved', 'Paper pitches · 3 min each', 'Each presenting paper gets three minutes to state its research question, method or perspective, and one insight or open question for Session 2. The final number of pitches will depend on accepted contributions.'],
+      ['15 min', 'Cross-paper questions', 'Clarify the methods and connect related questions across papers.'],
       ['5 min', 'Discussion prompts', 'Collect the methods and research questions that groups will examine in Session 2.'],
     ],
   },
@@ -81,10 +81,10 @@ export const faqs = [
   ['Can I participate without a paper?', 'The proposed interest-form route would let participants contribute a perspective or question without a paper. CHI 2027 also opens workshops to conference attendees, with priority for accepted position-paper authors. Details of access and capacity will be posted once confirmed.'],
   ['What should a position paper contain?', 'Describe the behavior or interaction you want to understand, your method or perspective, the evidence it uses, and a question you would like to discuss. The draft call proposes 2–4 pages excluding references; final requirements will be announced with the call.'],
   ['Do I need a completed study?', 'The proposed call welcomes early ideas, methodological positions, work in progress, and lessons from unsuccessful approaches, as well as completed studies. The emphasis is on what your contribution brings to the discussion.'],
-  ['What is the workshop format?', 'The proposed first session centers on lightning talks introducing methods and agent research questions. In the second, participants compare which methods are useful for particular questions, how to adapt them, and what evidence they need. Exact clock times and speakers will be announced after confirmation.'],
+  ['What is the workshop format?', 'The proposed first session gives each presenting paper a three-minute lightning talk, followed by questions across papers. In the second, participants compare which methods are useful for particular agent research questions, how to adapt them, and what evidence they need. Exact clock times and presenters will be announced after confirmation.'],
   ['Will remote participation be available?', 'CHI 2027 currently specifies in-person workshops. If IAB is accepted, participation will be in person in Pittsburgh. Links to the conference guidance are provided below.'],
   ['Will participant papers appear in the ACM Digital Library?', 'No ACM Digital Library publication is promised for participant papers. CHI 2027 includes the accepted workshop proposal in its proceedings. We propose sharing participant contributions on this website with author permission; the final sharing and publication policy will be stated in the call.'],
-  ['What should participants prepare?', 'We plan to circulate preparation guidance before the workshop. This may include a short introduction, a case or research question for group discussion, and reading other participants’ contributions. Presentation requirements will be confirmed with acceptance notifications.'],
+  ['What should participants prepare?', 'We plan to circulate preparation guidance before the workshop. Authors of papers scheduled for presentation would prepare a three-minute pitch on their question, method, and key insight or open question. Participants may also be asked to read other contributions and bring a question for group discussion. Final instructions will accompany acceptance notifications.'],
   ['Can I submit now?', 'Submissions are not open yet. Paper and interest-form links, review arrangements, and deadlines will be added when the call opens.'],
   ['Is the CHI 2027 workshop confirmed?', 'This is a proposed second edition of IAB for CHI 2027. Acceptance, the organizing team, the workshop date, and the final call for participation are still to be confirmed.'],
 ];
