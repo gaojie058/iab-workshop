@@ -130,7 +130,7 @@ function Schedule() {
     <section id="schedule" className="alt">
       <div className="container">
         <h2>Workshop Program <span className="status-pill">Proposed</span></h2>
-        <p className="lead">Two sessions combining perspectives, participant contributions, discussion, and group work. The draft below allocates 75 minutes to each session; clock times and presenters remain to be confirmed.</p>
+        <p className="lead">Lightning talks in the first session lead into a collective discussion of cross-disciplinary methods for studying agents in the second. The draft below allocates 75 minutes to each session; clock times and speakers remain to be confirmed.</p>
         <p className="conference-guidance">The format follows <a href={conferenceGuidance} target="_blank" rel="noopener noreferrer">CHI 2027 workshop guidance</a>: in-person participation, two consecutive sessions of approximately 75–90 minutes each, and a break between sessions.</p>
         {programSessions.map((session, index) => (
           <div className="program-session" key={session.title}>
@@ -163,7 +163,7 @@ function AcceptedContributions() {
         <h2>Accepted Contributions <span className="status-pill">Forthcoming</span></h2>
         <p className="lead">Accepted contributions will be listed after the review process. No submissions have been selected yet.</p>
         <h3 className="cfp-heading">Sharing and Presentation</h3>
-        <p>We propose sharing titles, abstracts, and author-approved materials on this website before the workshop. Selected contributions may be invited to the participant spotlight session; preparation guidance will accompany acceptance notifications.</p>
+        <p>We propose sharing titles, abstracts, and author-approved materials on this website before the workshop. Selected contributors may be invited to give a lightning talk; preparation guidance will accompany acceptance notifications.</p>
         <p>Publication arrangements for participant contributions remain to be confirmed. Under <a href={conferenceGuidance} target="_blank" rel="noopener noreferrer">CHI 2027 policy</a>, the workshop proposal is the document included in the CHI Extended Abstracts proceedings. Acceptance of a participant paper does not itself imply ACM Digital Library publication.</p>
       </div>
     </section>

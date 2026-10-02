@@ -54,22 +54,23 @@ export const contributionTopics = [
 
 export const programSessions = [
   {
-    title: 'Session 1: Perspectives and shared questions',
-    description: 'Introduce the problem space and bring different methodological perspectives into conversation.',
+    title: 'Session 1: Lightning talks across disciplines',
+    description: 'Short talks introduce methods from HCI and the social sciences and the agent research questions they could help answer.',
     activities: [
-      ['10 min', 'Welcome and framing', 'Introduce the three levels of inquiry and the questions participants want to explore.'],
-      ['15 min', 'Opening perspectives', 'Discuss how HCI and social science approaches can inform the interpretation of agent behavior.'],
-      ['20 min', 'Participant spotlights', 'Brief contributions introduce a study, methodological challenge, tool, or position for discussion.'],
-      ['30 min', 'Cross-disciplinary discussion', 'Compare assumptions and evidence, then identify concrete questions for the group activities.'],
+      ['10 min', 'Welcome and framing', 'Introduce the three levels of inquiry: agent behavior, human responses, and their interaction.'],
+      ['45 min', 'Lightning talks', 'Speakers and participants briefly present a method, an agent-related research question, and what the method might reveal. Speakers and exact timing will be confirmed later.'],
+      ['15 min', 'Clarifying questions', 'Compare the perspectives introduced in the talks and surface questions that need cross-disciplinary discussion.'],
+      ['5 min', 'Discussion prompts', 'Collect the methods and research questions that groups will examine in Session 2.'],
     ],
   },
   {
-    title: 'Session 2: Group inquiry and research agenda',
-    description: 'Work through methodological questions and develop directions for future research.',
+    title: 'Session 2: Which methods help us study agents?',
+    description: 'Discuss how methods can be adapted to agent research and when each approach is useful.',
     activities: [
-      ['40 min', 'Small-group activities', 'Groups examine a shared case or research question, discuss possible approaches, and document what each approach could reveal or miss.'],
-      ['20 min', 'Group reports', 'Share interpretations, points of disagreement, and proposed adaptations with the wider workshop.'],
-      ['15 min', 'Synthesis and next steps', 'Consolidate open questions, resource needs, and opportunities for continued collaboration.'],
+      ['5 min', 'Frame the comparison', 'Choose concrete agent, human, or interaction questions from Session 1 and agree on criteria for comparing methods.'],
+      ['30 min', 'Small-group method mapping', 'For each question, identify promising methods, the evidence they require, how they need adapting, and what they may miss.'],
+      ['25 min', 'Whole-group discussion', 'Groups share their comparisons and discuss where methods complement one another or lead to different interpretations.'],
+      ['15 min', 'Synthesis and next steps', 'Create a shared map of methods to research questions, with promising adaptations, limitations, and open questions.'],
     ],
   },
 ];
@@ -80,7 +81,7 @@ export const faqs = [
   ['Can I participate without a paper?', 'The proposed interest-form route would let participants contribute a perspective or question without a paper. CHI 2027 also opens workshops to conference attendees, with priority for accepted position-paper authors. Details of access and capacity will be posted once confirmed.'],
   ['What should a position paper contain?', 'Describe the behavior or interaction you want to understand, your method or perspective, the evidence it uses, and a question you would like to discuss. The draft call proposes 2–4 pages excluding references; final requirements will be announced with the call.'],
   ['Do I need a completed study?', 'The proposed call welcomes early ideas, methodological positions, work in progress, and lessons from unsuccessful approaches, as well as completed studies. The emphasis is on what your contribution brings to the discussion.'],
-  ['What is the workshop format?', 'The proposed program combines short contributions and discussion in the first session with small-group inquiry and synthesis in the second. Exact times and presenters will be announced after confirmation.'],
+  ['What is the workshop format?', 'The proposed first session centers on lightning talks introducing methods and agent research questions. In the second, participants compare which methods are useful for particular questions, how to adapt them, and what evidence they need. Exact clock times and speakers will be announced after confirmation.'],
   ['Will remote participation be available?', 'CHI 2027 currently specifies in-person workshops. If IAB is accepted, participation will be in person in Pittsburgh. Links to the conference guidance are provided below.'],
   ['Will participant papers appear in the ACM Digital Library?', 'No ACM Digital Library publication is promised for participant papers. CHI 2027 includes the accepted workshop proposal in its proceedings. We propose sharing participant contributions on this website with author permission; the final sharing and publication policy will be stated in the call.'],
   ['What should participants prepare?', 'We plan to circulate preparation guidance before the workshop. This may include a short introduction, a case or research question for group discussion, and reading other participants’ contributions. Presentation requirements will be confirmed with acceptance notifications.'],
